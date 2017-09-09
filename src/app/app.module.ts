@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { TodosComponent } from './todos/todos.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { TodosComponent } from './todos/todos.component';
     FormsModule,
     NgbModule.forRoot(),
   ],
-  providers: [Angular2TokenService],
+  providers: [Angular2TokenService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

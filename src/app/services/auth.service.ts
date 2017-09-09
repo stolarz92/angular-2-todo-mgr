@@ -2,13 +2,16 @@ import { Injectable } from '@angular/core';
 import {Angular2TokenService} from "angular2-token";
 import {Subject, Observable} from "rxjs";
 import {Response} from "@angular/http";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class AuthService {
 
   userSignedIn$:Subject<boolean> = new Subject();
 
-  constructor(public authService: Angular2TokenService) {
+  constructor(public authService: Angular2TokenService,
+              private router: Router
+  ) {
 
     this.authService.validateToken().subscribe(
       res => res.status == 200 ? this.userSignedIn$.next(res.json().success) : this.userSignedIn$.next(false)
@@ -20,6 +23,7 @@ export class AuthService {
     return this.authService.signOut().map(
       res => {
         this.userSignedIn$.next(false);
+        this.router.navigate(['/'])
         return res;
       }
     );

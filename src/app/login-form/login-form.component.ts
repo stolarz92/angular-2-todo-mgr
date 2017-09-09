@@ -15,6 +15,7 @@ export class LoginFormComponent implements OnInit {
   };
 
   @Output() onFormResult = new EventEmitter<any>();
+
   constructor(public authService:AuthService,
               private router: Router
   ) { }

@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { Angular2TokenService } from 'angular2-token';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,

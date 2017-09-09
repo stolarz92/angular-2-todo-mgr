@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { TodosComponent } from './todos/todos.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { RegisterFormComponent } from './register-form/register-form.component';
     NavbarComponent,
     LoginFormComponent,
     RegisterFormComponent,
+    TodosComponent,
   ],
   imports: [
     BrowserModule,

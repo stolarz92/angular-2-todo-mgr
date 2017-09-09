@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
-import { RegisterFormComponent } from "./register-form/register-form.component"
+import { RegisterFormComponent } from "./register-form/register-form.component";
+import { TodosComponent } from "./todos/todos.component";
 
 const routes: Routes = [
   {
@@ -21,7 +22,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterFormComponent
-  }
+  },
+  {
+    path: 'todos',
+    component: TodosComponent
+  },
 ];
 
 @NgModule({

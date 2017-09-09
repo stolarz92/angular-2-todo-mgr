@@ -1,6 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Headers, Http, Response, RequestOptions  } from '@angular/http';
 import { Angular2TokenService } from "angular2-token";
 
 @Component({

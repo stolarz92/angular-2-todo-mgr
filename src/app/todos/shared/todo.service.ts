@@ -7,20 +7,25 @@ import { Todo } from './todo';
 
 @Injectable()
 export class TodoService {
-  private todoUrl = 'http://localhost:3000/todos.json';
-
   constructor(
     private http: Http,
     private _token_service: Angular2TokenService
   ) {}
 
   getTodos(): Observable<Todo[]> {
-    return this._token_service.get('/todos')
+    return this._token_service.get('/todos/')
                               .map((response: Response) => <Todo[]>response.json())
   }
 
   getTodo(id: number) {
     return this._token_service.get('/todos/' + id)
+  }
+
+  createTodo(todo) {
+    let headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+    return this._token_service.post('/todos/', JSON.stringify(todo), { headers: headers })
+                              .map((res: Response) => res.json());
   }
 
   private handleError (error: Response | any) {

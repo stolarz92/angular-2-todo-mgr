@@ -6,6 +6,17 @@
 export const environment = {
   production: false,
   token_auth_config: {
-    apiBase: 'http://localhost:3000'
+    apiBase: 'http://localhost:3000',
+    globalOptions: {
+      headers: {
+        'content-type':  'application/json',
+        'accept':  'application/json',
+        'access-token': localStorage.getItem('accessToken'),
+        'client': localStorage.getItem('client'),
+        'uid': localStorage.getItem('uid'),
+        'expiry': localStorage.getItem('expiry'),
+        'token-type': 'Bearer'
+      }
+    }
   }
 };

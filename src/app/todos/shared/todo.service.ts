@@ -13,18 +13,18 @@ export class TodoService {
   ) {}
 
   getTodos(): Observable<Todo[]> {
-    return this._token_service.get('/todos/')
+    return this._token_service.get('todos/')
                               .map((response: Response) => <Todo[]>response.json())
   }
 
   getTodo(id: number) {
-    return this._token_service.get('/todos/' + id)
+    return this._token_service.get('todos/' + id)
   }
 
   createTodo(todo) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
-    return this._token_service.post('/todos', JSON.stringify(todo), { headers: headers })
+    return this._token_service.post('todos/', JSON.stringify(todo))
                               .map((res: Response) => res.json());
   }
 

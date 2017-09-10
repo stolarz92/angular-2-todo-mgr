@@ -23,7 +23,7 @@ export class AuthService {
     return this.authService.signOut().map(
       res => {
         this.userSignedIn$.next(false);
-        this.router.navigate(['/'])
+        this.router.navigate(['/']);
         return res;
       }
     );

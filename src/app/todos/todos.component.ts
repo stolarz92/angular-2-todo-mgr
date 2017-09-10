@@ -3,6 +3,7 @@ import { Todo } from './shared/todo';
 import { TodoService } from "./shared/todo.service";
 import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
@@ -21,7 +22,8 @@ export class TodosComponent implements OnInit {
 
   ngOnInit() {
     let timer = Observable.timer(0, 5000);
-    timer.subscribe(() => this.getTodos());
+    // timer.subscribe(() => this.getTodos());
+    this.getTodos();
   }
 
   getTodos() {

@@ -5,7 +5,7 @@
       <h4 class="card-title">{{ todo.title }}</h4>
       <p class="card-text"><small class="text-muted">{{ todo.created_by }}</small></p>
       <p class="card-text"><small class="text-muted">{{ todo.created_at | date }}</small></p>
-      <a routerLink="/todos/{{ todo.id }}" class="btn btn-primary btn-sm ">Zobacz listę</a>
+      <a (click)="goToShow(todo)" class="btn btn-primary btn-sm ">Zobacz listę</a>
     </div>
    </div>
 </div>

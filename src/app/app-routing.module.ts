@@ -31,16 +31,15 @@ const routes: Routes = [
     component: TodosComponent,
     canActivate: [AuthGuard]
   },
-  { path: 'todos/:id',
-    component: TodoShowComponent,
-    canActivate: [AuthGuard]
-  },
   {
     path: 'todos/new',
     component: TodoFormComponent,
     canActivate: [AuthGuard]
-  }
-
+  },
+  { path: 'todos/:id',
+    component: TodoShowComponent,
+    canActivate: [AuthGuard]
+  },
 ];
 
 @NgModule({

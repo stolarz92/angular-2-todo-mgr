@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Todo } from '../shared/todo';
 import { TodoService } from '../shared/todo.service';
@@ -6,9 +6,10 @@ import { TodoService } from '../shared/todo.service';
 @Component({
   selector: 'app-todo-form',
   templateUrl: './todo-form.component.html',
-  styleUrls: ['./todo-form.component.sass']
+  styleUrls: ['./todo-form.component.sass'],
+  providers: [ TodoService ]
 })
-export class TodoFormComponent implements OnInit {
+export class TodoFormComponent {
   todo = new Todo;
   // submitted = false;
   constructor(

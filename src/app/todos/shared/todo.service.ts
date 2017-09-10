@@ -24,7 +24,7 @@ export class TodoService {
   createTodo(todo) {
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
-    return this._token_service.post('/todos/', JSON.stringify(todo), { headers: headers })
+    return this._token_service.post('/todos', JSON.stringify(todo), { headers: headers })
                               .map((res: Response) => res.json());
   }
 

@@ -16,6 +16,7 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoService } from './todos/shared/todo.service';
 import { AuthService } from './services/auth.service';
 import {AuthGuard} from "./guards/auth.guard";
+import { TodoShowComponent } from './todos/todo-show/todo-show.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {AuthGuard} from "./guards/auth.guard";
     LoginFormComponent,
     RegisterFormComponent,
     TodosComponent,
+    TodoShowComponent,
   ],
   imports: [
     BrowserModule,

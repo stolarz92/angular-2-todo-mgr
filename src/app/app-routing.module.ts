@@ -4,6 +4,7 @@ import { HomeComponent } from "./home/home.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { RegisterFormComponent } from "./register-form/register-form.component";
 import { TodosComponent } from "./todos/todos.component";
+import { TodoShowComponent } from "./todos/todo-show/todo-show.component"
 import {AuthGuard} from "./guards/auth.guard";
 
 const routes: Routes = [
@@ -29,6 +30,11 @@ const routes: Routes = [
     component: TodosComponent,
     canActivate: [AuthGuard]
   },
+  { path: 'todos/:id',
+    component: TodoShowComponent,
+    canActivate: [AuthGuard]
+  },
+
 ];
 
 @NgModule({

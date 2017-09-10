@@ -19,6 +19,10 @@ export class TodoService {
                               .map((response: Response) => <Todo[]>response.json())
   }
 
+  getTodo(id: number) {
+    return this._token_service.get('/todos/' + id)
+  }
+
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure
     let errMsg: string;

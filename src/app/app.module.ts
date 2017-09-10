@@ -13,7 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { TodosComponent } from './todos/todos.component';
-import { TodoService } from './services/todo.service';
+import { TodoService } from './todos/shared/todo.service';
 import { AuthService } from './services/auth.service';
 import {AuthGuard} from "./guards/auth.guard";
 

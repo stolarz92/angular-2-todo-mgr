@@ -1,0 +1,17 @@
+<h1>{{ title }}</h1>
+<form (ngSubmit)="createTodo(todo)" #todoForm="ngForm">
+  <div>
+    <label for="title">Title</label>
+    <input class="form-control"
+           id="title"
+           name='title'
+           placeholder="Todo list title"
+           required
+           #title="ngModel"
+           [(ngModel)]="todo.title"
+           type="text">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<hr />
+<a routerLink="/todos">Back to Todos</a>

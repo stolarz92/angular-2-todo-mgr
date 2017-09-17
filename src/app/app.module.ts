@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +16,8 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.component';
 import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
-import {DropdownDirective} from './shared/dropdown.directive';
-import {TodoService} from './todos/todo.service';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { TodoService } from './todos/todo.service';
 import { TodoStartComponent } from './todos/todo-start/todo-start.component';
 import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 
@@ -41,6 +41,7 @@ import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
     AppRoutingModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot(),
   ],
   providers: [Angular2TokenService, TodoService],

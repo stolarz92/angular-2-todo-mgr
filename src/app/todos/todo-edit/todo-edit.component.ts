@@ -33,6 +33,15 @@ export class TodoEditComponent implements OnInit {
     console.log(this.todoForm);
   }
 
+  onAddItem() {
+    (<FormArray>this.todoForm.get('items')).push(
+      new FormGroup({
+        'name': new FormControl(),
+        'done': new FormControl(),
+      })
+    );
+  }
+
   private initForm() {
     let todoTitle = '';
     let todoItems = new FormArray([]);

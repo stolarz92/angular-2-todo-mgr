@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from '../todo.service';
+import {Todo} from '../../todos/todo.model';
 
 @Component({
   selector: 'app-todo-edit',
@@ -30,7 +31,16 @@ export class TodoEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.todoForm);
+    // const newTodo = new Todo(
+    //   this.todoForm.value['title'],
+    //   this.todoForm.value['items']
+    // );
+
+    if (this.editMode) {
+      this.todoService.updateTodo(this.id, this.todoForm.value);
+    } else {
+      this.todoService.addTodo(this.todoForm.value);
+    }
   }
 
   onAddItem() {

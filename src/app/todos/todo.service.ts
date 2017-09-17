@@ -1,7 +1,9 @@
 import { Todo } from './todo.model';
 import { Item } from '../shared/item.model';
+import {Subject} from 'rxjs/Subject';
 
 export class TodoService {
+  todosChanged = new Subject<Todo[]>();
 
   private todos: Todo[] = [
     new Todo('Test Title', [
@@ -19,6 +21,16 @@ export class TodoService {
 
   getTodo(index: number) {
     return this.todos[index];
+  }
+
+  addTodo(todo: Todo) {
+    this.todos.push(todo);
+    this.todosChanged.next(this.todos.slice());
+  }
+
+  updateTodo(index: number, newTodo: Todo) {
+    this.todos[index] = newTodo;
+    this.todosChanged.next(this.todos.slice());
   }
 }
 

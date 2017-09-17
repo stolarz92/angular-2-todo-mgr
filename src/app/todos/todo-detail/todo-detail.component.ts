@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo.model';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {TodoService} from '../todo.service';
 
 @Component({
@@ -14,7 +14,8 @@ export class TodoDetailComponent implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,6 +26,11 @@ export class TodoDetailComponent implements OnInit {
           this.todo = this.todoService.getTodo(this.id)
         }
       );
+  }
+
+  onEditTodo() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
+    // this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route })
   }
 
 }

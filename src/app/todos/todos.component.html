@@ -1,8 +1,14 @@
 <div class="row">
   <div class="col-md-5">
-    <app-todo-list></app-todo-list>
+    <app-todo-list
+      (todoWasSelected)="selectedTodo = $event"></app-todo-list>
   </div>
   <div class="col-md-7">
-    <app-todo-detail></app-todo-detail>
+    <app-todo-detail
+      *ngIf="selectedTodo; else infoText"
+      [todo]="selectedTodo"></app-todo-detail>
+    <ng-template #infoText>
+      <p>Proszę wybrać listę zadań.</p>
+    </ng-template>
   </div>
 </div>

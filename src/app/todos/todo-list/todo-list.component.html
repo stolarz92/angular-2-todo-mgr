@@ -5,7 +5,9 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <app-todo-item *ngFor="let todoEl of todos"
-    [todo]="todoEl"></app-todo-item>
+    <app-todo-item
+      *ngFor="let todoEl of todos"
+      [todo]="todoEl"
+      (todoSelected)="onTodoSelected(todoEl)"></app-todo-item>
   </div>
 </div>

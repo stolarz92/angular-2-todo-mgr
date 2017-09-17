@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, EventEmitter , Output} from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../../todo.model';
+import { TodoService } from '../../todo.service';
 @Component({
   selector: 'app-todo-item',
   templateUrl: './todo-item.component.html',
@@ -7,16 +8,15 @@ import { Todo } from '../../todo.model';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
-  @Output() todoSelected = new EventEmitter<void>();
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
   }
 
   onSelected(event: Event) {
     event.preventDefault();
-    this.todoSelected.emit();
+    this.todoService.todoSelected.emit(this.todo);
   }
 
 }

@@ -53,8 +53,12 @@ export class TodoEditComponent implements OnInit {
     );
   }
 
+  onDeleteItem(index: number) {
+    (<FormArray>this.todoForm.get('items')).removeAt(index);
+  }
+
   onCancel() {
-    this.router.navigate(['../'], {relativeTo: this.route})
+    this.router.navigate(['../'], {relativeTo: this.route});
   }
 
   private initForm() {

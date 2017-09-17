@@ -17,6 +17,7 @@ import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.component';
 import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
 import {DropdownDirective} from './shared/dropdown.directive';
+import {TodoService} from './todos/todo.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import {DropdownDirective} from './shared/dropdown.directive';
     FormsModule,
     NgbModule.forRoot(),
   ],
-  providers: [Angular2TokenService],
+  providers: [Angular2TokenService, TodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Todo } from '../todo.model';
+import {TodoService} from '../todo.service';
+
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
@@ -7,14 +9,11 @@ import { Todo } from '../todo.model';
 })
 export class TodoListComponent implements OnInit {
   @Output() todoWasSelected = new EventEmitter<Todo>();
-  todos: Todo[] = [
-    new Todo('Test Title'),
-    new Todo('Another Test Title'),
-  ];
-
-  constructor() { }
+  todos: Todo[];
+  constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.todos = this.todoService.getTodos();
   }
 
   onTodoSelected(todo: Todo) {

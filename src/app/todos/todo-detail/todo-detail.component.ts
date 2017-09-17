@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from '../todo.model';
+import { ActivatedRoute, Params } from '@angular/router';
+import {TodoService} from '../todo.service';
 
 @Component({
   selector: 'app-todo-detail',
@@ -7,11 +9,22 @@ import { Todo } from '../todo.model';
   styleUrls: ['./todo-detail.component.sass']
 })
 export class TodoDetailComponent implements OnInit {
-  @Input() todo: Todo;
+  todo: Todo;
+  id: number;
 
-  constructor() { }
+  constructor(
+    private todoService: TodoService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.id = +params['id'];
+          this.todo = this.todoService.getTodo(this.id)
+        }
+      );
   }
 
 }

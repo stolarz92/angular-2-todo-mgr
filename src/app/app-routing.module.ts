@@ -4,6 +4,8 @@ import { HomeComponent } from "./home/home.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { RegisterFormComponent } from "./register-form/register-form.component";
 import { TodosComponent } from "./todos/todos.component";
+import { TodoStartComponent } from './todos/todo-start/todo-start.component';
+import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
 
 const routes: Routes = [
   {
@@ -25,7 +27,11 @@ const routes: Routes = [
   },
   {
     path: 'todos',
-    component: TodosComponent
+    component: TodosComponent,
+    children: [
+      { path: '', component: TodoStartComponent },
+      { path: ':id', component: TodoDetailComponent }
+    ]
   },
 ];
 

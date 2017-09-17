@@ -12,5 +12,9 @@ export class TodoService {
   getTodos() {
     return this.todos.slice();
   }
+
+  getTodo(index: number) {
+    return this.todos[index];
+  }
 }
 

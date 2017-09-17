@@ -18,6 +18,7 @@ import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.compone
 import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
 import {DropdownDirective} from './shared/dropdown.directive';
 import {TodoService} from './todos/todo.service';
+import { TodoStartComponent } from './todos/todo-start/todo-start.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {TodoService} from './todos/todo.service';
     TodoItemComponent,
     TodoDetailComponent,
     DropdownDirective,
+    TodoStartComponent,
   ],
   imports: [
     BrowserModule,

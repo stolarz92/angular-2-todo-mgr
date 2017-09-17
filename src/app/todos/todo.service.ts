@@ -32,5 +32,10 @@ export class TodoService {
     this.todos[index] = newTodo;
     this.todosChanged.next(this.todos.slice());
   }
+
+  deleteTodo(index: number) {
+    this.todos.splice(index, 1);
+    this.todosChanged.next(this.todos.slice())
+  }
 }
 

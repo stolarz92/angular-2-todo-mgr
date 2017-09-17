@@ -33,4 +33,9 @@ export class TodoDetailComponent implements OnInit {
     // this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route })
   }
 
+  onDeleteTodo() {
+    this.todoService.deleteTodo(this.id);
+    this.router.navigate(['/todos'])
+  }
+
 }

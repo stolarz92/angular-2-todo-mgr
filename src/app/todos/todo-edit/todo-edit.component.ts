@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from '../todo.service';
-import {Todo} from '../../todos/todo.model';
 
 @Component({
   selector: 'app-todo-edit',
@@ -17,6 +16,7 @@ export class TodoEditComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private todoService: TodoService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -41,6 +41,7 @@ export class TodoEditComponent implements OnInit {
     } else {
       this.todoService.addTodo(this.todoForm.value);
     }
+    this.onCancel();
   }
 
   onAddItem() {
@@ -50,6 +51,10 @@ export class TodoEditComponent implements OnInit {
         'done': new FormControl(null),
       })
     );
+  }
+
+  onCancel() {
+    this.router.navigate(['../'], {relativeTo: this.route})
   }
 
   private initForm() {

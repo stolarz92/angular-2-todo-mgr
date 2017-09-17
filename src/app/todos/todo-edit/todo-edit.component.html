@@ -20,18 +20,28 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-8">
-          <input
-            type="text"
-            class="form-control">
-        </div>
-        <div class="col-xs-2 checkbox">
-          <label class="checkbox-inline">Done?
-            <input type="checkbox" >
-          </label>
-        </div>
-        <div class="col-xs-2">
-          <button class="btn btn-danger">X</button>
+        <div class="col-xs-12" formArrayName="items">
+          <div
+            class="row"
+            *ngFor="let itemCtrl of todoForm.get('items').controls; let i = index"
+            [formGroupName]="i">
+            <div class="col-xs-8">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name">
+            </div>
+            <div class="col-xs-2 checkbox">
+              <label class="checkbox-inline">Done?
+                <input
+                  type="checkbox"
+                  formControlName="done">
+              </label>
+            </div>
+            <div class="col-xs-2">
+              <button class="btn btn-danger">X</button>
+            </div>
+          </div>
         </div>
       </div>
     </form>

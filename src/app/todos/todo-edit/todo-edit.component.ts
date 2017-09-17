@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -35,14 +35,26 @@ export class TodoEditComponent implements OnInit {
 
   private initForm() {
     let todoTitle = '';
+    let todoItems = new FormArray([]);
 
     if (this.editMode) {
       const todo = this.todoService.getTodo(this.id);
       todoTitle = todo.title;
+      if (todo['items']) {
+        for (let item of todo.items) {
+          todoItems.push(
+            new FormGroup({
+              'name': new FormControl(item.name),
+              'done': new FormControl(item.done)
+            })
+          )
+        }
+      }
     }
 
     this.todoForm = new FormGroup({
       'title': new FormControl(todoTitle),
+      'items': todoItems
     });
   }
 

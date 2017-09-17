@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Params} from '@angular/router';
-import {FormControl, FormGroup} from '@angular/forms';
-import {TodoService} from "../todo.service";
+import { ActivatedRoute, Params } from '@angular/router';
+import { FormControl, FormGroup } from '@angular/forms';
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todo-edit',
@@ -11,7 +11,7 @@ import {TodoService} from "../todo.service";
 export class TodoEditComponent implements OnInit {
   id: number;
   editMode = false;
-  recipeForm: FormGroup;
+  todoForm: FormGroup;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,16 +29,20 @@ export class TodoEditComponent implements OnInit {
       )
   }
 
+  onSubmit() {
+    console.log(this.todoForm);
+  }
+
   private initForm() {
     let todoTitle = '';
 
     if (this.editMode) {
       const todo = this.todoService.getTodo(this.id);
-        todoTitle = todo.title;
+      todoTitle = todo.title;
     }
 
-    this.recipeForm = new FormGroup({
-      'title': new FormControl(),
+    this.todoForm = new FormGroup({
+      'title': new FormControl(todoTitle),
     });
   }
 

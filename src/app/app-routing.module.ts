@@ -6,6 +6,7 @@ import { RegisterFormComponent } from "./register-form/register-form.component";
 import { TodosComponent } from "./todos/todos.component";
 import { TodoStartComponent } from './todos/todo-start/todo-start.component';
 import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
+import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,9 @@ const routes: Routes = [
     component: TodosComponent,
     children: [
       { path: '', component: TodoStartComponent },
-      { path: ':id', component: TodoDetailComponent }
+      { path: 'new', component: TodoEditComponent },
+      { path: ':id', component: TodoDetailComponent },
+      { path: ':id/edit', component: TodoEditComponent },
     ]
   },
 ];

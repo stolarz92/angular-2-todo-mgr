@@ -16,6 +16,7 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoListComponent } from './todos/todo-list/todo-list.component';
 import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.component';
 import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
+import {DropdownDirective} from './shared/dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
     TodoListComponent,
     TodoItemComponent,
     TodoDetailComponent,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,

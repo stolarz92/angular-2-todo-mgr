@@ -13,6 +13,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { TodosComponent } from './todos/todos.component';
+import { TodoListComponent } from './todos/todo-list/todo-list.component';
+import { TodoItemComponent } from './todos/todo-list/todo-item/todo-item.component';
+import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { TodosComponent } from './todos/todos.component';
     LoginFormComponent,
     RegisterFormComponent,
     TodosComponent,
+    TodoListComponent,
+    TodoItemComponent,
+    TodoDetailComponent,
   ],
   imports: [
     BrowserModule,

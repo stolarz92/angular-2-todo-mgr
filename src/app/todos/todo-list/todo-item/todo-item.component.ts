@@ -8,6 +8,7 @@ import { Todo } from '../../todo.model';
 })
 export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
+  @Input() index: number;
 
   ngOnInit() {
   }

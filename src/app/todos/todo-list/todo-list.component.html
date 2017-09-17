@@ -5,11 +5,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <a href="#" class="list-group-item clearfix" *ngFor="let todo of todos">
-      <div class="pull-left">
-        <h4 class="list-group-item-heading">{{ todo.title }}</h4>
-      </div>
-    </a>
-    <app-todo-item></app-todo-item>
+    <app-todo-item *ngFor="let todoEl of todos"
+    [todo]="todoEl"></app-todo-item>
   </div>
 </div>

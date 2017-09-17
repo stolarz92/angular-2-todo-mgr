@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -36,8 +36,8 @@ export class TodoEditComponent implements OnInit {
   onAddItem() {
     (<FormArray>this.todoForm.get('items')).push(
       new FormGroup({
-        'name': new FormControl(),
-        'done': new FormControl(),
+        'name': new FormControl(null, Validators.required),
+        'done': new FormControl(null),
       })
     );
   }
@@ -53,7 +53,7 @@ export class TodoEditComponent implements OnInit {
         for (let item of todo.items) {
           todoItems.push(
             new FormGroup({
-              'name': new FormControl(item.name),
+              'name': new FormControl(item.name, Validators.required),
               'done': new FormControl(item.done)
             })
           )
@@ -62,7 +62,7 @@ export class TodoEditComponent implements OnInit {
     }
 
     this.todoForm = new FormGroup({
-      'title': new FormControl(todoTitle),
+      'title': new FormControl(todoTitle, Validators.required),
       'items': todoItems
     });
   }

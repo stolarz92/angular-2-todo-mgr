@@ -20,6 +20,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { TodoService } from './todos/todo.service';
 import { TodoStartComponent } from './todos/todo-start/todo-start.component';
 import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
+import { AuthService } from './services/auth.service';
+import {AuthGuard} from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,11 @@ import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
     ReactiveFormsModule,
     NgbModule.forRoot(),
   ],
-  providers: [Angular2TokenService, TodoService],
+
+  providers: [Angular2TokenService,
+              AuthService,
+              AuthGuard,
+              TodoService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

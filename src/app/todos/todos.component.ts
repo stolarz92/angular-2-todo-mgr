@@ -8,10 +8,10 @@ import {TodoService} from './todo.service';
   providers: [TodoService]
 })
 export class TodosComponent implements OnInit {
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
 
   }
-
 }

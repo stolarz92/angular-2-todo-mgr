@@ -3,8 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from "./home/home.component";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { RegisterFormComponent } from "./register-form/register-form.component";
-import { TodosComponent } from "./todos/todos.component";
-import {AuthGuard} from "./guards/auth.guard";
+import { TodosComponent } from './todos/todos.component';
+import { TodoStartComponent } from './todos/todo-start/todo-start.component';
+import { TodoDetailComponent } from './todos/todo-detail/todo-detail.component';
+import { TodoEditComponent } from './todos/todo-edit/todo-edit.component';
+import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -27,7 +30,12 @@ const routes: Routes = [
   {
     path: 'todos',
     component: TodosComponent,
-    canActivate: [AuthGuard]
+    children: [
+      { path: '', component: TodoStartComponent },
+      { path: 'new', component: TodoEditComponent },
+      { path: ':id', component: TodoDetailComponent },
+      { path: ':id/edit', component: TodoEditComponent },
+    ]
   },
 ];
 
